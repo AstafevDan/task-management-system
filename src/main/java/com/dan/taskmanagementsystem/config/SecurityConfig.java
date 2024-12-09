@@ -46,16 +46,18 @@ public class SecurityConfig {
                             .permitAll();
 
                     registry.requestMatchers("/api/v1/user/**").hasAnyRole(ADMIN.name(), USER.name());
-                    registry.requestMatchers(GET, "/api/v1/user/**").hasAnyAuthority(ADMIN_READ.name(), USER_READ.name());
-                    registry.requestMatchers(POST, "/api/v1/user/**").hasAnyAuthority(ADMIN_CREATE.name(), USER_CREATE.name());
-                    registry.requestMatchers(PUT, "/api/v1/user/**").hasAnyAuthority(ADMIN_UPDATE.name(), USER_UPDATE.name());
-                    registry.requestMatchers(DELETE, "/api/v1/user/**").hasAnyAuthority(ADMIN_DELETE.name(), USER_DELETE.name());
+                    registry.requestMatchers(POST, "/api/v1/user/**").hasAuthority(ADD_COMMENT.name());
+                    registry.requestMatchers(PUT, "/api/v1/user/**").hasAuthority(UPDATE_STATUS.name());
 
                     registry.requestMatchers("/api/v1/admin/**").hasRole(ADMIN.name());
-                    registry.requestMatchers(GET, "/api/v1/admin/**").hasAuthority(ADMIN_READ.name());
-                    registry.requestMatchers(POST, "/api/v1/admin/**").hasAuthority(ADMIN_CREATE.name());
-                    registry.requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ADMIN_UPDATE.name());
-                    registry.requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(ADMIN_DELETE.name());
+                    registry.requestMatchers(GET, "/api/v1/admin/**").hasAuthority(READ_TASK.name());
+                    registry.requestMatchers(POST, "/api/v1/admin/**").hasAuthority(CREATE_TASK.name());
+                    registry.requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(UPDATE_TASK.name());
+                    registry.requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(DELETE_TASK.name());
+                    registry.requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(UPDATE_STATUS.name());
+                    registry.requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(UPDATE_PRIORITY.name());
+                    registry.requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ASSIGN_EXECUTOR.name());
+                    registry.requestMatchers(POST, "/api/v1/admin/**").hasAuthority(ADD_COMMENT.name());
 
                     registry.anyRequest().authenticated();
                 })

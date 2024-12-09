@@ -1,5 +1,8 @@
 package com.dan.taskmanagementsystem.controller.auth;
 
+import com.dan.taskmanagementsystem.dto.AuthenticationRequest;
+import com.dan.taskmanagementsystem.dto.AuthenticationResponse;
+import com.dan.taskmanagementsystem.dto.RegisterRequest;
 import com.dan.taskmanagementsystem.service.AuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package com.dan.taskmanagementsystem.controller.auth;
+package com.dan.taskmanagementsystem.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

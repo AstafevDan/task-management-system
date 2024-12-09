@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -16,20 +14,20 @@ import static com.dan.taskmanagementsystem.entity.enums.Permission.*;
 @RequiredArgsConstructor
 public enum Role {
     ADMIN(Set.of(
-            ADMIN_READ,
-            ADMIN_CREATE,
-            ADMIN_UPDATE,
-            ADMIN_DELETE,
-            USER_READ,
-            USER_CREATE,
-            USER_UPDATE,
-            USER_DELETE
+            READ_TASK,
+            CREATE_TASK,
+            UPDATE_TASK,
+            DELETE_TASK,
+            UPDATE_STATUS,
+            UPDATE_PRIORITY,
+            ASSIGN_EXECUTOR,
+            ADD_COMMENT
     )),
 
-    USER(Set.of(USER_READ,
-            USER_CREATE,
-            USER_UPDATE,
-            USER_DELETE));
+    USER(Set.of(
+            UPDATE_STATUS,
+            ADD_COMMENT
+            ));
 
     private final Set<Permission> permissions;
 
