@@ -1,5 +1,6 @@
 package com.dan.taskmanagementsystem.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentFilter {
+public class AssignExecutorDto {
 
-    private Long taskId;
+    @NotNull(message = "Executor id should be filled in")
+    private Long executorId;
 }

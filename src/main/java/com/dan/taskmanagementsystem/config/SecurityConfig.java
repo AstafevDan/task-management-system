@@ -45,19 +45,25 @@ public class SecurityConfig {
                                     "/swagger-ui.html")
                             .permitAll();
 
-                    registry.requestMatchers("/api/v1/user/**").hasAnyRole(ADMIN.name(), USER.name());
-                    registry.requestMatchers(POST, "/api/v1/user/**").hasAuthority(ADD_COMMENT.name());
-                    registry.requestMatchers(PUT, "/api/v1/user/**").hasAuthority(UPDATE_STATUS.name());
+                   registry.requestMatchers("/api/v1/tasks/{id}/status", "/api/v1/tasks/filter", 
+                   "/api/v1/comments/filter", "/api/v1/comments").hasAnyRole(ADMIN.name(), USER.name());
+                   registry.requestMatchers(POST, "/api/v1/comments").hasAuthority(ADD_COMMENT.name());
+                   registry.requestMatchers(POST, "/api/v1/comments/filter").hasAuthority(READ_COMMENTS.name());
+                   registry.requestMatchers(PATCH, "/api/v1/tasks/{id}/status").hasAuthority(UPDATE_STATUS.name());
 
-                    registry.requestMatchers("/api/v1/admin/**").hasRole(ADMIN.name());
-                    registry.requestMatchers(GET, "/api/v1/admin/**").hasAuthority(READ_TASK.name());
-                    registry.requestMatchers(POST, "/api/v1/admin/**").hasAuthority(CREATE_TASK.name());
-                    registry.requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(UPDATE_TASK.name());
-                    registry.requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(DELETE_TASK.name());
-                    registry.requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(UPDATE_STATUS.name());
-                    registry.requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(UPDATE_PRIORITY.name());
-                    registry.requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ASSIGN_EXECUTOR.name());
-                    registry.requestMatchers(POST, "/api/v1/admin/**").hasAuthority(ADD_COMMENT.name());
+                    registry.requestMatchers("/api/v1/tasks", "/api/v1/tasks/**", 
+                    "/api/v1/comments", "/api/v1/comments/filter")
+                            .hasRole(ADMIN.name());
+                    registry.requestMatchers(GET, "/api/v1/tasks/**").hasAuthority(READ_TASK.name());
+                    registry.requestMatchers(POST, "/api/v1/tasks/filter").hasAuthority(READ_TASK.name());
+                    registry.requestMatchers(POST, "/api/v1/tasks").hasAuthority(CREATE_TASK.name());
+                    registry.requestMatchers(PUT, "/api/v1/tasks/**").hasAuthority(UPDATE_TASK.name());
+                    registry.requestMatchers(DELETE, "/api/v1/tasks/**").hasAuthority(DELETE_TASK.name());
+                    registry.requestMatchers(PATCH, "/api/v1/tasks/**").hasAuthority(UPDATE_STATUS.name());
+                    registry.requestMatchers(PATCH, "/api/v1/tasks/**").hasAuthority(UPDATE_PRIORITY.name());
+                    registry.requestMatchers(PATCH, "/api/v1/tasks/**").hasAuthority(ASSIGN_EXECUTOR.name());
+                    registry.requestMatchers(POST, "/api/v1/comments").hasAuthority(ADD_COMMENT.name());
+                    registry.requestMatchers(POST, "/api/v1/comments/filter").hasAuthority(READ_COMMENTS.name());
 
                     registry.anyRequest().authenticated();
                 })

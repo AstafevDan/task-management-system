@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: task-management-system
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        hbm2ddl:
+          auto: validate
+    open-in-view: false
+
+app:
+  security:
+    jwt:
+      secret-key: c98c619347bf2b54e3398b64f5442befa4f94a2927d13b08a65b473c8b6dc3a1 #рандомно сгенерированный ключ подписи для jwt токена
+      expiration: 1800000 #30 минут
+      refresh:
+        expiration: 604800000 #1 неделя

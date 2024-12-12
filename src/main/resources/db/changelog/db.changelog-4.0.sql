@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS tokens
     is_revoked BOOLEAN ,
     created_at TIMESTAMP DEFAULT NOW() ,
     last_modified_at TIMESTAMP DEFAULT NOW() ,
-    user_id BIGINT NOT NULL REFERENCES users (id)
+    user_id BIGINT NOT NULL REFERENCES users (id) ON DELETE CASCADE
 )
 --rollback DROP TABLE tokens

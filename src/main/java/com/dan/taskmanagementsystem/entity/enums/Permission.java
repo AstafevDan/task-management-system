@@ -15,7 +15,8 @@ public enum Permission {
     UPDATE_STATUS("user:updateStatus"),
     UPDATE_PRIORITY("admin:updatePriority"),
     ASSIGN_EXECUTOR("admin:assignExecutor"),
-    ADD_COMMENT("user:addComment");
+    ADD_COMMENT("user:addComment"),
+    READ_COMMENTS("user:readComments");
 
     private final String permission;
 }

@@ -12,14 +12,14 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @OpenAPIDefinition(
         info = @Info(
                 contact = @Contact(
-                        name = "Daniil"
+                        name = "Даниил"
                 ),
-                description = "OpenApi documentation for Task Management System by Daniil Astafev",
-                title = "OpenApi specification by Daniil Astafev"
+                description = "OpenApi документация для Task Management System от Даниила Астафьева",
+                title = "OpenApi спецификация от Даниила Астафьева"
         ),
         servers = {
                 @Server(
-                        description = "Local environment",
+                        description = "Локальное окружение",
                         url = "http://localhost:8080"
                 )
         },

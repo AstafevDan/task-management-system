@@ -1,6 +1,8 @@
 package com.dan.taskmanagementsystem.repository;
 
 import com.dan.taskmanagementsystem.entity.Task;
+import com.dan.taskmanagementsystem.entity.enums.TaskPriority;
+import com.dan.taskmanagementsystem.entity.enums.TaskStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,7 +21,7 @@ WHERE (:authorId IS NULL OR t.author.id = :authorId) AND
     Page<Task> findByFilter(
             @Param("authorId") Long authorId,
             @Param("executorId") Long executorId,
-            @Param("status") String status,
-            @Param("priority") String priority,
+            @Param("status") TaskStatus status,
+            @Param("priority") TaskPriority priority,
             Pageable pageable);
 }

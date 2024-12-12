@@ -36,4 +36,28 @@ public class TaskCreateEditMapper implements Mapper<TaskCreateEditDto, Task>{
                 .flatMap(userRepository::findById)
                 .orElse(null);
     }
+
+    @Override
+    public Task map(TaskCreateEditDto fromObject, Task toObject) {
+        if (fromObject.getTitle() != null) {
+            toObject.setTitle(fromObject.getTitle());
+        }
+        if (fromObject.getDescription() != null) {
+            toObject.setDescription(fromObject.getDescription());
+        }
+        if (fromObject.getStatus() != null) {
+            toObject.setStatus(fromObject.getStatus());
+        }
+        if (fromObject.getPriority() != null) {
+            toObject.setPriority(fromObject.getPriority());
+        }
+        if (fromObject.getExecutorId() != null) {
+            toObject.setExecutor(getUser(fromObject.getExecutorId()));
+        }
+        if (fromObject.getAuthorId() != null) {
+            toObject.setAuthor(getUser(fromObject.getAuthorId()));
+        }
+        
+        return toObject;
+    }
 }

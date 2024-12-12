@@ -1,8 +1,8 @@
 package com.dan.taskmanagementsystem.service;
 
-import com.dan.taskmanagementsystem.dto.AuthenticationRequest;
-import com.dan.taskmanagementsystem.dto.AuthenticationResponse;
-import com.dan.taskmanagementsystem.dto.RegisterRequest;
+import com.dan.taskmanagementsystem.dto.auth.AuthenticationRequest;
+import com.dan.taskmanagementsystem.dto.auth.AuthenticationResponse;
+import com.dan.taskmanagementsystem.dto.auth.RegisterRequest;
 import com.dan.taskmanagementsystem.entity.Token;
 import com.dan.taskmanagementsystem.entity.User;
 import com.dan.taskmanagementsystem.entity.enums.TokenType;

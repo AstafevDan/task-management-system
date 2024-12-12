@@ -21,12 +21,14 @@ public enum Role {
             UPDATE_STATUS,
             UPDATE_PRIORITY,
             ASSIGN_EXECUTOR,
-            ADD_COMMENT
+            ADD_COMMENT,
+            READ_COMMENTS
     )),
 
     USER(Set.of(
-            UPDATE_STATUS,
-            ADD_COMMENT
+                UPDATE_STATUS,
+                ADD_COMMENT,
+                READ_COMMENTS
             ));
 
     private final Set<Permission> permissions;
